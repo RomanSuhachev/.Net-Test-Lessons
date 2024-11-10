@@ -1,0 +1,33 @@
+﻿@model TestCRM.Models.UserModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@{
+    ViewData["Title"] = "Feedback form";
+}
+
+<div class="text-center">
+    <form method="post" asp-controller="Home" asp-action="SendName">
+        @Html.AntiForgeryToken()
+        <p>
+            <label asp-for="Id">Id</label>
+            <input asp-for="Id" type="text" id="id">
+            <span asp-validation-for="Id"></span>
+        </p>
+        <p>
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" type="text" id="name">
+            <span asp-validation-for="Name"></span>
+        </p>
+        <p>
+            <label asp-for="SurName">Surname</label>
+            <input asp-for="SurName" type="text" id="surname">
+            <span asp-validation-for="SurName"></span>
+        </p>
+        <button type="submit">Send data</button>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
