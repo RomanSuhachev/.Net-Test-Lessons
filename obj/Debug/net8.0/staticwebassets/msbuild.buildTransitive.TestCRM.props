@@ -1,3 +1,3 @@
 ﻿<Project>
-  <Import Project="..\buildMultiTargeting\TestCRM.props" />
+  <Import Project="../buildMultiTargeting/TestCRM.props" />
 </Project>
