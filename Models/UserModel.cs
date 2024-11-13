@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Numerics;
 
 
 namespace TestCRM.Models
@@ -10,10 +11,13 @@ namespace TestCRM.Models
     public class UserModel
     {
         [Required(ErrorMessage = "Не указан ID")]
+        [Range(1, int.MaxValue, ErrorMessage = "ID должен быть положительным целым числом.")]
         public int Id { get; set; }
         [Required(ErrorMessage = "Не указано Имя")]
+        [StringLength(2, ErrorMessage = "Поле имя не может быть меньше 2 символов и содержать только пробелы")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Не указана Фамилия")]
+        [DataType(DataType.Text)]
         public string? SurName { get; set; }
         
         public UserModel()
