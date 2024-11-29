@@ -7,13 +7,8 @@
 }
 
 <div class="text-center">
-    <form method="post" asp-controller="Home" asp-action="SendName">
+    <form asp-controller="UserModels" asp-action="Create">
         @Html.AntiForgeryToken()
-        <p>
-            <label asp-for="Id">Id</label>
-            <input asp-for="Id" type="text" id="id">
-            <span asp-validation-for="Id"></span>
-        </p>
         <p>
             <label asp-for="Name">Name</label>
             <input asp-for="Name" type="text" id="name">

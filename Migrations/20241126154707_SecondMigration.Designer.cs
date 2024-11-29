@@ -10,8 +10,8 @@ using TestCRM.Data;
 namespace TestCRM.Migrations
 {
     [DbContext(typeof(TestCRMContext))]
-    [Migration("20241113115200_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241126154707_SecondMigration")]
+    partial class SecondMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

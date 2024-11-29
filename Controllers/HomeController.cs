@@ -1,5 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using TestCRM.Data;
 using TestCRM.Models;
 
 namespace TestCRM.Controllers;
@@ -33,7 +35,7 @@ public class HomeController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult SendName(UserModel user = null)
     {
-        UserModel userProfile = new(user.Id, user.Name, user.SurName);
+        UserModel userProfile = new(user.Name, user.SurName);
 
         if (ModelState.IsValid)
         {

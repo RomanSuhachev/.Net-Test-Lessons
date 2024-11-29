@@ -10,8 +10,6 @@ namespace TestCRM.Models
 {
     public class UserModel
     {
-        [Required(ErrorMessage = "Не указан ID")]
-        [Range(1, int.MaxValue, ErrorMessage = "ID должен быть положительным целым числом.")]
         public int Id { get; set; }
         [Required(ErrorMessage = "Не указано Имя")]
         [StringLength(2, ErrorMessage = "Поле имя не может быть меньше 2 символов и содержать только пробелы")]
@@ -25,9 +23,8 @@ namespace TestCRM.Models
             
         }
         
-        public UserModel(int id, string name, string surName)
+        public UserModel(string name, string surName)
         {
-            Id = id;
             Name = name;
             SurName = surName;
         }
