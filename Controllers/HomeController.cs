@@ -3,21 +3,25 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TestCRM.Data;
 using TestCRM.Models;
+using System;
+using System.Collections.Generic;
 
 namespace TestCRM.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly TestCRMContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, TestCRMContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index()
     {
-        return View();
+        return View(_context.UserModel.ToList());
     }
 
     public IActionResult Privacy()
